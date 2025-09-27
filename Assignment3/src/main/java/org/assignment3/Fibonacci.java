@@ -14,7 +14,7 @@ public class Fibonacci {
     /**
      * A simple modification to the int variable to test JUnit 5.
      */
-    public static final int base_int = 10;
+    public static final int base_int = 8;
 
     /**
      * Finds the nth term of the Fibonacci sequence using recursion.
