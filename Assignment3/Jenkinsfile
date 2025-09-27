@@ -9,38 +9,38 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/DavidWinter92/cen4802.git'
+                git branch: 'main', url: 'https://github.com/DavidWinter92/cen4802.git'
             }
         }
 
         stage('Build') {
             steps {
-                dir('assignment 3') {
-                    sh 'mvn clean package'
+                dir('Assignment3') {
+                    bat 'mvn clean package'
                 }
             }
         }
 
         stage('Test') {
             steps {
-                dir('assignment 3') {
-                    sh 'mvn test'
+                dir('Assignment3') {
+                    bat 'mvn test'
                 }
             }
         }
 
         stage('Docker Build') {
             steps {
-                dir('assignment 3') {
-                    sh 'docker build -t fibonacci-app .'
+                dir('Assignment3') {
+                    bat 'docker build -t fibonacci-app .'
                 }
             }
         }
 
         stage('Docker Run') {
             steps {
-                dir('assignment 3') {
-                    sh 'docker run --rm fibonacci-app'
+                dir('Assignment3') {
+                    bat 'docker run --rm fibonacci-app'
                 }
             }
         }
