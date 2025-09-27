@@ -1,0 +1,48 @@
+pipeline {
+    agent any
+
+    tools {
+        maven 'Maven3'
+        jdk 'JDK17'
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git 'https://github.com/YOUR-USERNAME/C4082.git'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                dir('assignment 3') {
+                    sh 'mvn clean package'
+                }
+            }
+        }
+
+        stage('Test') {
+            steps {
+                dir('assignment 3') {
+                    sh 'mvn test'
+                }
+            }
+        }
+
+        stage('Docker Build') {
+            steps {
+                dir('assignment 3') {
+                    sh 'docker build -t fibonacci-app .'
+                }
+            }
+        }
+
+        stage('Docker Run') {
+            steps {
+                dir('assignment 3') {
+                    sh 'docker run --rm fibonacci-app'
+                }
+            }
+        }
+    }
+}
