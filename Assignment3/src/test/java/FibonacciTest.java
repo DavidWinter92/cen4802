@@ -11,7 +11,7 @@ public class FibonacciTest {
         assertEquals(10, Fibonacci.base_int,
                 "base_int should be 10");
     }
-//test
+
     @Test
     void testFibonacciOf4() {
         assertEquals(3, Fibonacci.fibonacci(4),
