@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/DavidWinter92/C4082.git'
+                git 'https://github.com/DavidWinter92/cen4082.git'
             }
         }
 
