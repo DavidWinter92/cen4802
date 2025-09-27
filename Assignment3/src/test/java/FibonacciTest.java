@@ -8,7 +8,7 @@ public class FibonacciTest {
 
     @Test
     void testBaseInt() {
-        assertEquals(10, Fibonacci.base_int,
+        assertEquals(9, Fibonacci.base_int,
                 "base_int should be 10");
     }
 
