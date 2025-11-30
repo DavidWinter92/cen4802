@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: frontend-deployment
+  namespace: finalproject
 spec:
   replicas: 1
   selector:
@@ -14,19 +15,23 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: dwinter8/frontend:latest
+          image: your-dockerhub-username/frontend:latest
           ports:
             - containerPort: 3000
+          env:
+            - name: NEXT_PUBLIC_BACKEND_URL
+              value: "http://backend-service:8081"
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: frontend-service
+  namespace: finalproject
 spec:
   selector:
     app: frontend
   ports:
     - protocol: TCP
-      port: 3000
+      port: 80
       targetPort: 3000
   type: LoadBalancer
