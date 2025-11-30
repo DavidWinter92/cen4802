@@ -1,0 +1,15 @@
+
+===== LOG SUMMARY =====
+P1 events: 610
+P2 events: 1220
+P3 events: 1220
+
+Initially detected stale ticker: [STALE][P2] RIC: NVDA Layer: MFA Feed: LDR BID: 216.161 ASK: 216.164 TRD_PRC: 216.164 on 2025-10-18 14:07:13
+Most recent stale ticker: [STALE][P2] RIC: NVDA Layer: MFA Feed: LDR BID: 216.161 ASK: 216.164 TRD_PRC: 216.164 on 2025-10-18 14:54:54
+
+Initially detected null ticker: [NULL][P3] Feed: B-PIPE Ticker: AMD TRD_PRC: <blank_data> BID: <blank_data> ASK: <blank_data> on 2025-10-18 14:07:13
+Most recent null ticker: [NULL][P3] Feed: B-PIPE Ticker: AMD TRD_PRC: <blank_data> BID: <blank_data> ASK: <blank_data> on 2025-10-18 14:54:54
+
+Initially detected edge disconnect: [OUTAGE][P1] FAIL: Outage 'iaase005934'://EDGC0934 on 2025-10-18 14:07:13
+Most recent edge disconnect: [OUTAGE][P1] FAIL: Outage 'iaase005934'://EDGC0934 on 2025-10-18 14:54:54
+========================

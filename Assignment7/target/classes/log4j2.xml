@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="DEBUG">
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="[%level] %d{HH:mm:ss} %msg%n"/>
+            <Filters>
+                <ThresholdFilter level="error" onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
+        </Console>
+
+        <RollingFile name="BPIPE" fileName="logs/bpipe.json"
+                     filePattern="logs/bpipe-%d{MM-dd-yyyy}.json">
+            <JsonLayout complete="false" compact="false" eventEol="true"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1"/>
+            </Policies>
+            <DefaultRolloverStrategy max="7"/>
+        </RollingFile>
+
+        <RollingFile name="LDR" fileName="logs/ldr.json"
+                     filePattern="logs/ldr-%d{MM-dd-yyyy}.json">
+            <JsonLayout complete="false" compact="false" eventEol="true"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1"/>
+            </Policies>
+            <DefaultRolloverStrategy max="7"/>
+        </RollingFile>
+
+        <RollingFile name="EDGE" fileName="logs/edge.json"
+                     filePattern="logs/edge-%d{MM-dd-yyyy}.json">
+            <JsonLayout complete="false" compact="false" eventEol="true"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1"/>
+            </Policies>
+            <DefaultRolloverStrategy max="7"/>
+        </RollingFile>
+
+        <RollingFile name="SUMMARY" fileName="logs/summary.log"
+                     filePattern="logs/summary-%d{MM-dd-yyyy}.log">
+            <PatternLayout pattern="[%level] %d{yyyy-MM-dd HH:mm:ss} %msg%n"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1"/>
+            </Policies>
+            <DefaultRolloverStrategy max="7"/>
+        </RollingFile>
+    </Appenders>
+
+    <Loggers>
+        <Logger name="BPIPE_LOGGER" level="info" additivity="false">
+            <AppenderRef ref="BPIPE"/>
+            <AppenderRef ref="Console"/>
+        </Logger>
+
+        <Logger name="LDR_LOGGER" level="info" additivity="false">
+            <AppenderRef ref="LDR"/>
+            <AppenderRef ref="Console"/>
+        </Logger>
+
+        <Logger name="EDGE_LOGGER" level="info" additivity="false">
+            <AppenderRef ref="EDGE"/>
+            <AppenderRef ref="Console"/>
+        </Logger>
+
+        <Logger name="SUMMARY_LOGGER" level="info" additivity="false">
+            <AppenderRef ref="SUMMARY"/>
+            <AppenderRef ref="Console"/>
+        </Logger>
+
+        <Root level="info">
+            <AppenderRef ref="BPIPE"/>
+            <AppenderRef ref="LDR"/>
+            <AppenderRef ref="EDGE"/>
+            <AppenderRef ref="Console"/>
+        </Root>
+    </Loggers>
+</Configuration>
